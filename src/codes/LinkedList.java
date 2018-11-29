@@ -160,7 +160,7 @@ public class LinkedList {
 			last.setNext(null);
 		}
 		
-		else { // if the index is valid
+		else { // if the index is valid and more than 2 items
 			
 			Node nodeOne = first;
 			Node nodeTwo = first;
@@ -177,28 +177,60 @@ public class LinkedList {
 			Node nodeTwoPrev = nodeTwo.getPrevious();
 			Node nodeTwoNext = nodeTwo.getNext();
 
-			nodeTwo.getPrevious().setNext(nodeOne);
-			nodeOne.getNext().setPrevious(nodeTwo);
 
-			if(nodeOne.getPrevious() == null){ //if nodeOne is first
-				nodeTwo.setPrevious(null);
-				first = nodeTwo;
-			} else {			
-				nodeOne.getPrevious().setNext(nodeTwo);
-			}
-
-			if(nodeTwo.getNext() == null){ //if nodeTwo is last
-				nodeOne.setNext(null); 
-				last = nodeOne;
-			} else {	
-				nodeTwo.getNext().setPrevious(nodeOne);
+			if (nodeOne.getNext() == nodeTwo) { // if the two nodes are adjacent
+				
+				nodeTwo.getPrevious().setNext(nodeOne);
+				nodeOne.getNext().setPrevious(nodeTwo);
+				
+				if(nodeOne.getPrevious() == null){ //if nodeOne is first
+					nodeTwo.setPrevious(null);
+					first = nodeTwo;
+				} else {			
+					nodeOne.getPrevious().setNext(nodeTwo);
+				}
+	
+				if(nodeTwo.getNext() == null){ //if nodeTwo is last
+					nodeOne.setNext(null); 
+					last = nodeOne;
+				} else {	
+					nodeTwo.getNext().setPrevious(nodeOne);
+				}
+				
+				//finish swapping
+				nodeOne.setNext(nodeTwoNext);
+				nodeOne.setPrevious(nodeTwoPrev);
+				nodeTwo.setPrevious(nodeOnePrev);		
+				nodeTwo.setNext(nodeOneNext);
+				
 			}
 			
-			//finish swapping
-			nodeOne.setNext(nodeTwoNext);
-			nodeOne.setPrevious(nodeTwoPrev);
-			nodeTwo.setPrevious(nodeOnePrev);		
-			nodeTwo.setNext(nodeOneNext);
+			else {
+				
+				nodeTwo.getPrevious().setNext(nodeOne);
+				nodeOne.getNext().setPrevious(nodeTwo);
+				
+				if(nodeOne.getPrevious() == null){ //if nodeOne is first
+					nodeTwo.setPrevious(null);
+					first = nodeTwo;
+				} else {			
+					nodeOne.getPrevious().setNext(nodeTwo);
+				}
+	
+				if(nodeTwo.getNext() == null){ //if nodeTwo is last
+					nodeOne.setNext(null); 
+					last = nodeOne;
+				} else {	
+					nodeTwo.getNext().setPrevious(nodeOne);
+				}
+				
+				//finish swapping
+				nodeOne.setNext(nodeTwoNext);
+				nodeOne.setPrevious(nodeTwoPrev);
+				nodeTwo.setPrevious(nodeOnePrev);		
+				nodeTwo.setNext(nodeOneNext);
+			
+			}
 			
 		} //end if index is valid
 		
