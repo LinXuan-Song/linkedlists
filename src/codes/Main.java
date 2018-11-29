@@ -14,9 +14,6 @@ public class Main {
 		//list.add(6);
 		//list.add(7);
 		
-		list.display();
-		System.out.println();
-		
 		list.swap(0,4);
 		
 		list.display();

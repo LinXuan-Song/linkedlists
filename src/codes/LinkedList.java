@@ -151,10 +151,6 @@ public class LinkedList {
 			Node nodeOnePrev = nodeOne.getPrevious();
 			Node nodeOneNext = nodeOne.getNext();
 
-			nodeOne.setNext(nodeTwo.getNext());
-			nodeOne.setPrevious(nodeTwo.getPrevious());
-			nodeTwo.setNext(nodeOne.getNext());
-			nodeTwo.setPrevious(nodeOne.getPrevious());
 			nodeTwo.getPrevious().setNext(nodeOne);
 			nodeOne.getNext().setPrevious(nodeTwo);
 
@@ -172,7 +168,10 @@ public class LinkedList {
 				nodeTwo.setNext(nodeOneNext);
 			}
 
-
+			nodeOne.setNext(nodeTwo.getNext());
+			nodeOne.setPrevious(nodeTwo.getPrevious());
+			nodeTwo.setNext(nodeOne.getNext());
+			nodeTwo.setPrevious(nodeOne.getPrevious());
 			
 		} //end if index is valid
 		
