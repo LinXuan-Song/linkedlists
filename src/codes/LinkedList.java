@@ -132,7 +132,7 @@ public class LinkedList {
 			return;
 		}
 		
-		if (indexOne < 0 || indexOne > length - 1 || indexTwo < 0 || indexTwo > length - 1) { // if the index is in the list
+		if (indexOne < 0 || indexOne > length - 1 || length > 1) { // if the index is in the list and if the length is at least 2
 			return;
 		}
 		
