@@ -132,7 +132,7 @@ public class LinkedList {
 			return;
 		}
 		
-		if (indexOne < 0 || indexOne > length - 1 || length > 1) { // if the index is in the list and if the length is at least 2
+		if (indexOne < 0 || indexTwo > length || length >= 2) { // if the index is in the list and if the length is at least 2
 			return;
 		}
 		
@@ -140,45 +140,33 @@ public class LinkedList {
 			
 			Node nodeOne = first;
 			Node nodeTwo = first;
-			
 			for (int x = 0; x < indexOne; x++) { //sets nodeOne to be where indexOne is at
 				nodeOne = nodeOne.getNext();
 			}
 			for (int x = 0; x < indexTwo; x++) { //sets nodeTwo to be where indexTwo is at
 				nodeTwo = nodeTwo.getNext();
 			}
-			
-			// split into: first and last, first and middle, middle and last, middle and middle
-			
-			boolean includeFirst = false;
-			boolean includeLast = false;
-			boolean adjacent = false;
-			
-			if (nodeOne == first) { //if one of the swapping nodes are first
-				includeFirst = true;
-			}
-			if (nodeTwo == last) { // if one of the swapping nodes are last
-				includeLast = true;
-			}
-			if (nodeOne.getNext() == nodeTwo) { // if they are adjacent
-				adjacent = true;
-			}
 
 			// swapping start
-			
-			if (includeFirst && !includeLast) { // swapping first and middle
-				nodeOne.getNext().setPrevious(nodeTwo);
-				nodeOne.setNext(nodeTwo.getNext());
-				nodeOne.setPrevious(nodeTwo.getPrevious());
-				nodeTwo.getPrevious().setNext(nodeOne);
-				nodeTwo.getNext().setPrevious(nodeOne);
-				nodeTwo.setNext(first.getNext());
-				nodeTwo.setPrevious(null);
-			}
-			
-			else if (includeFirst && includeLast) { // swapping both first and last
-				
-			} //end swapping both first and last
+			Node nodeOneNext = nodeOne.getNext();
+			Node nodeOnePrev = nodeOne.getPrevious();
+
+			nodeOne.getNext().setPrevious(nodeTwo);
+			display();
+			nodeOne.getPrevious().setNext(nodeTwo);
+			display();
+			nodeOne.setNext(nodeTwo.getNext());
+			display();
+			nodeOne.setPrevious(nodeTwo.getPrevious());
+			display();
+			nodeTwo.getPrevious().setNext(nodeOne);
+			display();
+			nodeTwo.getNext().setPrevious(nodeOne);
+			display();
+			nodeTwo.setNext(nodeOneNext);
+			display();
+			nodeTwo.setPrevious(nodeOnePrev);
+
 			
 		} //end if index is valid
 		
