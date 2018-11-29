@@ -156,7 +156,7 @@ public class LinkedList {
 			nodeTwo.getPrevious().setNext(nodeOne);
 			nodeOne.getNext().setPrevious(nodeTwo);
 
-			if(nodeOne.getPrevious() == null){
+			if(nodeOne.getPrevious() == null){ //if nodeOne is first
 			    nodeTwo.setPrevious(null);
 			    last = nodeOne;
 			} else {
@@ -164,12 +164,12 @@ public class LinkedList {
 				nodeOne.getPrevious().setNext(nodeTwo);
 			}
 
-			if(nodeTwo.getNext() == null){
+			if(nodeTwo.getNext() == null){ //if nodeTwo is last
 				nodeOne.setNext(null); 
 				first = nodeTwo;
 			} else {
 				nodeOne.setNext(nodeTwoNext);
-				nodeOne.getNext().setPrevious(nodeTwo);
+				nodeTwo.getNext().setPrevious(nodeOne);
 			}
 
 			nodeOne.setNext(nodeTwo.getNext());
