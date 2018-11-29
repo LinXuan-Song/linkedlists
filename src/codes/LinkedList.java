@@ -158,20 +158,18 @@ public class LinkedList {
 			nodeTwo.getPrevious().setNext(nodeOne);
 			nodeOne.getNext().setPrevious(nodeTwo);
 
-
-
 			if(nodeOne.getPrevious() == null){
 			    nodeTwo.setPrevious(null);
 			    last = nodeOne;
 			} else {
-				nodeTwo.setPrevious(nodeOne.getPrevious());
+				nodeTwo.setPrevious(nodeOnePrev);
 			}
 
 			if(nodeTwo.getNext() == null){
 				nodeOne.setNext(null); 
 				first = nodeTwo;
 			} else {
-				nodeTwo.setNext(nodeOne.getNext());
+				nodeTwo.setNext(nodeOneNext);
 			}
 
 

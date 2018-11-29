@@ -11,10 +11,13 @@ public class Main {
 		list.add(3);
 		list.add(4);
 		list.add(5);
-		list.add(6);
-		list.add(7);
+		//list.add(6);
+		//list.add(7);
 		
-		list.swap(0,5);
+		list.display();
+		System.out.println();
+		
+		list.swap(0,4);
 		
 		list.display();
 		
