@@ -132,7 +132,7 @@ public class LinkedList {
 			return;
 		}
 		
-		if (indexOne < 0 || indexTwo > length || length >= 2) { // if the index is in the list and if the length is at least 2
+		if (indexOne < 0 && indexTwo > length && length >= 2) { // if the index is in the list and if the length is at least 2
 			return;
 		}
 		
@@ -156,12 +156,6 @@ public class LinkedList {
 			nodeTwo.getPrevious().setNext(nodeOne);
 			nodeOne.getNext().setPrevious(nodeTwo);
 
-			nodeOne.setNext(nodeTwoNext);
-			nodeOne.setPrevious(nodeTwoPrev);
-			nodeTwo.setPrevious(nodeOnePrev);		
-			nodeTwo.setNext(nodeOneNext);
-
-
 			if(nodeOne.getPrevious() == null){ //if nodeOne is first
 				nodeTwo.setPrevious(null);
 				first = nodeTwo;
@@ -175,6 +169,11 @@ public class LinkedList {
 			} else {	
 				nodeTwo.getNext().setPrevious(nodeOne);
 			}
+			
+			nodeOne.setNext(nodeTwoNext);
+			nodeOne.setPrevious(nodeTwoPrev);
+			nodeTwo.setPrevious(nodeOnePrev);		
+			nodeTwo.setNext(nodeOneNext);
 			
 		} //end if index is valid
 		
