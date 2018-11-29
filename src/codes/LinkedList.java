@@ -148,7 +148,7 @@ public class LinkedList {
 			}
 
 			// swapping start
-			Node nodeOnePrev = nodeOne.getPrevious(); 
+			Node nodeOnePrev = nodeOne.getPrevious(); //make copies of the next and previous to prevent overwrite
 			Node nodeOneNext = nodeOne.getNext();
 			Node nodeTwoPrev = nodeTwo.getPrevious();
 			Node nodeTwoNext = nodeTwo.getNext();
