@@ -168,7 +168,7 @@ public class LinkedList {
 				nodeOne.setNext(null); 
 				first = nodeTwo;
 			} else {
-				nodeTOne.setNext(nodeTwoNext);
+				nodeOne.setNext(nodeTwoNext);
 				nodeOne.getNext().setPrevious(nodeTwo);
 			}
 
