@@ -168,17 +168,11 @@ public class LinkedList {
 			
 			if (includeFirst && !includeLast) { // swapping first and middle
 				nodeOne.getNext().setPrevious(nodeTwo);
-				display();
 				nodeOne.setNext(nodeTwo.getNext());
-				display();
 				nodeOne.setPrevious(nodeTwo.getPrevious());
-				display();
 				nodeTwo.getPrevious().setNext(nodeOne);
-				display();
 				nodeTwo.getNext().setPrevious(nodeOne);
-				display();
 				nodeTwo.setNext(first.getNext());
-				display();
 				nodeTwo.setPrevious(null);
 			}
 			
