@@ -132,7 +132,7 @@ public class LinkedList {
 			return;
 		}
 		
-		if (indexOne < 0 && indexTwo > length && length >= 2) { // if the index is in the list and if the length is at least 2
+		if (indexOne < 0 || indexTwo > length || length <= 2) { // if the index is in the list and if the length is at least 2
 			return;
 		}
 		
@@ -170,6 +170,7 @@ public class LinkedList {
 				nodeTwo.getNext().setPrevious(nodeOne);
 			}
 			
+			//finish swapping
 			nodeOne.setNext(nodeTwoNext);
 			nodeOne.setPrevious(nodeTwoPrev);
 			nodeTwo.setPrevious(nodeOnePrev);		
