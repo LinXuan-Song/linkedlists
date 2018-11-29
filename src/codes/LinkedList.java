@@ -160,20 +160,20 @@ public class LinkedList {
 			    nodeTwo.setPrevious(null);
 			    last = nodeOne;
 			} else {
-				nodeTwo.setPrevious(nodeOnePrev);
+				nodeOne.setPrevious(nodeTwoPrev);
+				nodeOne.getPrevious().setNext(nodeTwo);
 			}
 
 			if(nodeTwo.getNext() == null){
 				nodeOne.setNext(null); 
 				first = nodeTwo;
 			} else {
-				nodeTwo.setNext(nodeOneNext);
+				nodeTOne.setNext(nodeTwoNext);
+				nodeOne.getNext().setPrevious(nodeTwo);
 			}
 
 			nodeOne.setNext(nodeTwo.getNext());
 			nodeOne.setPrevious(nodeTwo.getPrevious());
-			nodeTwo.setNext(nodeOne.getNext());
-			nodeTwo.setPrevious(nodeOne.getPrevious());
 			
 		} //end if index is valid
 		

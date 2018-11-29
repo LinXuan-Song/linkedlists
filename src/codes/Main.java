@@ -14,7 +14,7 @@ public class Main {
 		//list.add(6);
 		//list.add(7);
 		
-		list.swap(0,4);
+		list.swap(1,3);
 		
 		list.display();
 		
