@@ -132,8 +132,32 @@ public class LinkedList {
 			return;
 		}
 		
-		if (indexOne < 0 || indexTwo > length || length <= 2) { // if the index is in the list and if the length is at least 2
+		if (indexOne < 0 || indexTwo > length || length < 2) { // if the index is in the list and if the length is at least 2
 			return;
+		}
+		
+		else if (length == 2) { // if there's only 2 items in the list
+			Node firstPrev = new Node(-1); // temp nodes
+			Node lastNext = new Node(-1);
+			
+			firstPrev.setNext(first); // connect the temp nodes
+			first.setPrevious(firstPrev);
+			lastNext.setPrevious(last);
+			last.setNext(lastNext);			
+			first = firstPrev; //set them first and last
+			last = lastNext;
+			
+			first.getNext().setNext(lastNext); //change references
+			first.getNext().setPrevious(last.getPrevious());
+			last.getPrevious().setNext(first.getNext());
+			last.getPrevious().setPrevious(firstPrev);
+			first.setNext(last.getPrevious());
+			last.setPrevious(first.getNext().getNext());
+			
+			first = first.getNext(); //set first and last back
+			last = last.getPrevious();
+			first.setPrevious(null); //delete temp nodes
+			last.setNext(null);
 		}
 		
 		else { // if the index is valid
