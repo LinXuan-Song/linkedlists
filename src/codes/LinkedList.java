@@ -148,24 +148,32 @@ public class LinkedList {
 			}
 
 			// swapping start
-			Node nodeOneNext = nodeOne.getNext();
 			Node nodeOnePrev = nodeOne.getPrevious();
+			Node nodeOneNext = nodeOne.getNext();
 
-			nodeOne.getNext().setPrevious(nodeTwo);
-			display();
-			nodeOne.getPrevious().setNext(nodeTwo);
-			display();
 			nodeOne.setNext(nodeTwo.getNext());
-			display();
 			nodeOne.setPrevious(nodeTwo.getPrevious());
-			display();
+			nodeTwo.setNext(nodeOne.getNext());
+			nodeTwo.setPrevious(nodeOne.getPrevious());
 			nodeTwo.getPrevious().setNext(nodeOne);
-			display();
-			nodeTwo.getNext().setPrevious(nodeOne);
-			display();
-			nodeTwo.setNext(nodeOneNext);
-			display();
-			nodeTwo.setPrevious(nodeOnePrev);
+			nodeOne.getNext().setPrevious(nodeTwo);
+
+
+
+			if(nodeOne.getPrevious() == null){
+			    nodeTwo.setPrevious(null);
+			    last = nodeOne;
+			} else {
+				nodeTwo.setPrevious(nodeOne.getPrevious());
+			}
+
+			if(nodeTwo.getNext() == null){
+				nodeOne.setNext(null); 
+				first = nodeTwo;
+			} else {
+				nodeTwo.setNext(nodeOne.getNext());
+			}
+
 
 			
 		} //end if index is valid
