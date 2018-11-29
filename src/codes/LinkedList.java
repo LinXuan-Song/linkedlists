@@ -148,29 +148,31 @@ public class LinkedList {
 			}
 
 			// swapping start
-			Node nodeOnePrev = nodeOne.getPrevious(); //make copies of the previous and next nodes of nodeOne and nodeTwo
+			Node nodeOnePrev = nodeOne.getPrevious(); 
 			Node nodeOneNext = nodeOne.getNext();
 			Node nodeTwoPrev = nodeTwo.getPrevious();
 			Node nodeTwoNext = nodeTwo.getNext();
 
 			nodeTwo.getPrevious().setNext(nodeOne);
 			nodeOne.getNext().setPrevious(nodeTwo);
-			nodeTwo.setNext(nodeOne.getNext());
-			nodeOne.setNext(nodeTwo.getNext());
+
+			nodeOne.setNext(nodeTwoNext);
+			nodeOne.setPrevious(nodeTwoPrev);
+			nodeTwo.setPrevious(nodeOnePrev);		
+			nodeTwo.setNext(nodeOneNext);
+
 
 			if(nodeOne.getPrevious() == null){ //if nodeOne is first
-			    nodeTwo.setPrevious(null);
-			    first = nodeTwo;
-			} else {
-				nodeOne.setPrevious(nodeTwoPrev);
+				nodeTwo.setPrevious(null);
+				first = nodeTwo;
+			} else {			
 				nodeOne.getPrevious().setNext(nodeTwo);
 			}
 
 			if(nodeTwo.getNext() == null){ //if nodeTwo is last
 				nodeOne.setNext(null); 
 				last = nodeOne;
-			} else {
-				nodeOne.setNext(nodeTwoNext);
+			} else {	
 				nodeTwo.getNext().setPrevious(nodeOne);
 			}
 			
