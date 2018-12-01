@@ -202,7 +202,7 @@ public class LinkedList {
 				
 			}
 			
-			else {
+			else { // if the nodes are not adjacent 
 				
 				nodeTwo.getPrevious().setNext(nodeOne);
 				nodeOne.getNext().setPrevious(nodeTwo);
