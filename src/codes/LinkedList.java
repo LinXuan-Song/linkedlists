@@ -180,28 +180,25 @@ public class LinkedList {
 
 			if (nodeOne.getNext() == nodeTwo) { // if the two nodes are adjacent
 				
-				nodeTwo.getPrevious().setNext(nodeOne);
-				nodeOne.getNext().setPrevious(nodeTwo);
-				
 				if(nodeOne.getPrevious() == null){ //if nodeOne is first
 					nodeTwo.setPrevious(null);
 					first = nodeTwo;
 				} else {			
-					nodeOne.getPrevious().setNext(nodeTwo);
+					nodeOnePrev.setNext(nodeTwo);
 				}
 	
 				if(nodeTwo.getNext() == null){ //if nodeTwo is last
 					nodeOne.setNext(null); 
 					last = nodeOne;
 				} else {	
-					nodeTwo.getNext().setPrevious(nodeOne);
+					nodeTwoNext.setPrevious(nodeOne);
 				}
 				
 				//finish swapping
 				nodeOne.setNext(nodeTwoNext);
-				nodeOne.setPrevious(nodeTwoPrev);
+				nodeOne.setPrevious(nodeTwo);
 				nodeTwo.setPrevious(nodeOnePrev);		
-				nodeTwo.setNext(nodeOneNext);
+				nodeTwo.setNext(nodeOne);
 				
 			}
 			
